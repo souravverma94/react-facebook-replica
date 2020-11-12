@@ -1,2 +1,1 @@
-# react-facebook-replica
-A Facebook Clone using React
+# Facebook Clone using React
