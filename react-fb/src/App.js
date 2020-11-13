@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import renderIf from "render-if";
-import CreateUser from "./services/signUp";
 import "./App.css";
 import SignInUsers from "./services/signIn";
 import SignUp from "./components/SignUp";

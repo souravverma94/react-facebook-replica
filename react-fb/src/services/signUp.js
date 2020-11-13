@@ -1,14 +1,14 @@
 import { firebaseApp, userRef } from "../firebase";
 
-const CreateUsers = (email, password, firstname, lastname) => {
+const CreateUser = ({ email, password, firstname, lastname }) => {
   if (!firstname || !lastname) return false;
   firebaseApp
     .auth()
     .createUserWithEmailAndPassword(email, password)
     .then((data) => {
       userRef.child(data.user.uid).set({
-        first: firstname,
-        last: lastname,
+        firstname: firstname,
+        lastname: lastname,
         email: email,
       });
       console.log("user: ", data);
@@ -19,4 +19,4 @@ const CreateUsers = (email, password, firstname, lastname) => {
     });
 };
 
-export default CreateUsers;
+export default CreateUser;

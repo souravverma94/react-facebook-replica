@@ -1,7 +1,8 @@
 import { Navbar, Icon, NavItem, Container } from "react-materialize";
+import renderIf from "render-if";
 import { firebaseApp } from "../firebase";
 
-export const NavBar = () => {
+export const NavBar = ({ userStatus }) => {
   return (
     <div style={{ backgroundColor: "royalblue" }}>
       <Container>
@@ -27,14 +28,16 @@ export const NavBar = () => {
             preventScrolling: true,
           }}
         >
-          <NavItem
-            href=""
-            onClick={() => {
-              firebaseApp.auth().signOut();
-            }}
-          >
-            Log Out
-          </NavItem>
+          {renderIf(userStatus)(
+            <NavItem
+              href=""
+              onClick={() => {
+                firebaseApp.auth().signOut();
+              }}
+            >
+              Log Out
+            </NavItem>
+          )}
         </Navbar>
       </Container>
     </div>
