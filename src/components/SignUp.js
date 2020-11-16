@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { TextInput } from "react-materialize";
+import { Button, TextInput } from "react-materialize";
 import CreateUser from "../services/signUp";
 import "./SignUp.css";
 
-const SignUp = () => {
+const SignUp = ({ toggleHasAccount }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -22,6 +22,7 @@ const SignUp = () => {
 
   return (
     <div className="signup-container">
+      <h4>Sign Up</h4>
       <TextInput
         id="first"
         label="First Name"
@@ -50,7 +51,18 @@ const SignUp = () => {
           setPassword(e.target.value);
         }}
       />
-      <button onClick={onSubmit}>Submit</button>
+      <Button
+        node="button"
+        type="submit"
+        onClick={onSubmit}
+        style={{ backgroundColor: "#1877f2" }}
+      >
+        Submit
+      </Button>
+      <p>
+        Already Have an Account?{" "}
+        <span onClick={() => toggleHasAccount()}>Sign In</span>
+      </p>
     </div>
   );
 };

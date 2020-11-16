@@ -1,6 +1,6 @@
 import { firebaseApp, userRef } from "../firebase";
 
-const SignInUsers = (email, password) => {
+export const SignInUsers = ({ email, password }) => {
   firebaseApp
     .auth()
     .signInWithEmailAndPassword(email, password)

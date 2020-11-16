@@ -2,9 +2,9 @@ import { Navbar, Icon, NavItem, Container } from "react-materialize";
 import renderIf from "render-if";
 import { firebaseApp } from "../firebase";
 
-export const NavBar = ({ userStatus }) => {
+export const NavBar = ({ isLoggedin }) => {
   return (
-    <div style={{ backgroundColor: "royalblue" }}>
+    <div style={{ backgroundColor: "#1877f2" }}>
       <Container>
         <Navbar
           className="main-navbar"
@@ -28,7 +28,7 @@ export const NavBar = ({ userStatus }) => {
             preventScrolling: true,
           }}
         >
-          {renderIf(userStatus)(
+          {renderIf(isLoggedin)(
             <NavItem
               href=""
               onClick={() => {
